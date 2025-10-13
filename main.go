@@ -5,8 +5,6 @@ import (
 )
 
 func main() {
+	// Initialisation du serveur
 	power4.Serveur()
 }
-
-
-
