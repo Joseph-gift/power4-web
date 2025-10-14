@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +9,18 @@
 <body>
     <div class="container">
         <h1>Power 4</h1>
-        <p> {{.Player1}} vs {{.Player2}}</p>
+        <p> {{.Player1}} vs {{.Player2}} -- Mode: {{.Difficulty}} <br>
+        
+        {{ if eq .Turn 1}} {{.Player1}} {{else}} {{.Player2}} {{end}}
+        </p>
+
+        <form action="/move" method="post">
+        <div class="row">
+            {{range $i, $_ := index .Grill 0}}
+            <button class="drop" type="submit" name="col" value="{{$i}}">↓</button>
+            {{end}}
+        </div>
+        </form>
 
         <div class="board">
             {{range .Grill}}
