@@ -12,6 +12,9 @@ func Serveur() {
 	// Move route
 	http.HandleFunc("/move", move)
 
+	// Rematch route
+	http.HandleFunc("/rematch", rematch)
+
 	// Load css
 	fs := http.FileServer(http.Dir("static"))
 	http.Handle("/static/", http.StripPrefix("/static/", fs))
