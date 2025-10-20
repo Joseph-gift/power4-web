@@ -19,7 +19,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: clamp(8px, 1.5vw, 16px);
+  padding: clamp(6px, 1.2vw, 16px);
   position: relative;
   overflow-x: hidden;
   overflow-y: auto;
@@ -681,16 +681,7 @@ h1 {
 /* Responsive */
 @media (max-width: 1200px) {
   .game-container {
-    max-width: min(960px, 100vw - 28px);
-  }
-  .game-header {
-    padding: 20px;
-  }
-  .board-container {
-    padding: 20px;
-  }
-  .game-board {
-    padding: 20px;
+    max-width: min(960px, 100vw - 32px);
   }
 }
 
@@ -698,90 +689,248 @@ h1 {
   body {
     align-items: center;
     overflow-y: auto;
+    padding: clamp(12px, 2vw, 16px);
   }
   .game-container {
     max-width: min(760px, 100vw - 24px);
     max-height: 96vh;
   }
   .game-header {
-    padding: 14px;
-    border-radius: 18px;
+    padding: clamp(12px, 1.8vw, 14px);
+    border-radius: 14px;
+    gap: 10px;
   }
   .game-title h2 {
-    font-size: 24px;
+    font-size: clamp(20px, 2.5vw, 24px);
+  }
+  .sparkle {
+    width: 18px;
+    height: 18px;
   }
   .players-status {
     gap: 10px;
   }
+  .player-card {
+    padding: 10px;
+    gap: 8px;
+  }
   .player-avatar {
-    width: 40px;
-    height: 40px;
+    width: clamp(32px, 4vw, 40px);
+    height: clamp(32px, 4vw, 40px);
   }
   .player-name {
-    font-size: 14px;
+    font-size: clamp(12px, 1.5vw, 14px);
   }
   .board-container {
-    padding: 14px;
-    border-radius: 18px;
+    padding: clamp(12px, 1.8vw, 14px);
+    border-radius: 14px;
   }
   .game-board {
-    padding: 14px;
+    padding: clamp(12px, 1.8vw, 14px);
   }
   .board-grid,
   .column-indicators {
     gap: clamp(3px, calc(48px / var(--cols, 7)), 6px);
   }
+  .gravity-banner {
+    padding: 8px 12px;
+    gap: 6px;
+  }
+  .gravity-spin-icon {
+    width: 16px;
+    height: 16px;
+  }
+  .gravity-text {
+    font-size: 11px;
+  }
 }
 
 @media (max-width: 600px) {
+  body {
+    padding: clamp(8px, 1.5vw, 12px);
+  }
   .game-container {
     max-width: min(520px, 100vw - 16px);
     max-height: 95vh;
+    padding: 4px 0;
   }
   .game-header {
-    padding: 12px;
-    border-radius: 14px;
+    padding: 10px;
+    border-radius: 12px;
+    gap: 8px;
   }
   .game-title h2 {
-    font-size: 20px;
+    font-size: clamp(16px, 3vw, 20px);
+  }
+  .sparkle {
+    width: 16px;
+    height: 16px;
   }
   .back-button {
     padding: 6px 10px;
-    font-size: 13px;
+    font-size: 12px;
+    border-radius: 6px;
+  }
+  .player-card {
+    padding: 8px;
+    gap: 6px;
+    border-radius: 8px;
   }
   .player-avatar {
-    width: 36px;
-    height: 36px;
+    width: clamp(28px, 5vw, 36px);
+    height: clamp(28px, 5vw, 36px);
   }
   .player-name {
-    font-size: 13px;
+    font-size: clamp(11px, 2vw, 13px);
   }
   .board-container {
-    padding: 12px;
-    border-radius: 14px;
+    padding: 10px;
+    border-radius: 12px;
   }
   .game-board {
-    padding: 12px;
+    padding: 10px;
+    border-radius: 12px;
   }
   .board-grid,
   .column-indicators {
     gap: clamp(2px, calc(32px / var(--cols, 7)), 4px);
   }
+  .column-button {
+    border-radius: 8px;
+  }
+  .gravity-banner {
+    padding: 6px 10px;
+    gap: 5px;
+    border-radius: 8px;
+  }
+  .gravity-spin-icon {
+    width: 14px;
+    height: 14px;
+  }
+  .gravity-text {
+    font-size: 10px;
+  }
+  .winner-message {
+    padding: 10px 12px;
+    border-radius: 10px;
+  }
+  .winner-icon {
+    width: 28px;
+    height: 28px;
+  }
+  .winner-text {
+    font-size: 14px;
+  }
 }
 
 @media (max-width: 420px) {
+  body {
+    padding: 6px;
+  }
   .game-container {
-    max-height: 94vh;
+    max-width: calc(100vw - 12px);
+    max-height: 96vh;
+    padding: 3px 0;
+  }
+  .game-header {
+    padding: 8px;
+    border-radius: 10px;
+    gap: 6px;
   }
   .game-title h2 {
-    font-size: 18px;
+    font-size: clamp(14px, 3.5vw, 18px);
+  }
+  .sparkle {
+    width: 14px;
+    height: 14px;
+  }
+  .back-button {
+    padding: 5px 8px;
+    font-size: 11px;
+  }
+  .game-top {
+    gap: 8px;
+  }
+  .player-card {
+    padding: 6px;
+    gap: 5px;
+    border-radius: 6px;
+  }
+  .player-avatar {
+    width: 24px;
+    height: 24px;
+  }
+  .player-name {
+    font-size: 10px;
+  }
+  .board-container {
+    padding: 8px;
+    border-radius: 10px;
+  }
+  .game-board {
+    padding: 8px;
+    border-radius: 10px;
   }
   .board-grid,
   .column-indicators {
-    gap: 4px;
+    gap: 3px;
   }
-  .game-header,
+  .column-button {
+    border-radius: 6px;
+  }
+  .gravity-banner {
+    padding: 5px 8px;
+    gap: 4px;
+    border-radius: 6px;
+  }
+  .gravity-spin-icon {
+    width: 12px;
+    height: 12px;
+  }
+  .gravity-text {
+    font-size: 9px;
+  }
+  .winner-message {
+    padding: 8px 10px;
+    border-radius: 8px;
+  }
+  .winner-icon {
+    width: 24px;
+    height: 24px;
+    margin: 0 auto 4px;
+  }
+  .winner-text {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 360px) {
+  body {
+    padding: 4px;
+  }
+  .game-container {
+    max-width: calc(100vw - 8px);
+    padding: 2px 0;
+  }
+  .game-header {
+    padding: 6px;
+    gap: 5px;
+  }
+  .game-title h2 {
+    font-size: 14px;
+  }
+  .sparkle {
+    width: 12px;
+    height: 12px;
+  }
   .board-container {
-    border-radius: 14px;
+    padding: 6px;
+  }
+  .game-board {
+    padding: 6px;
+  }
+  .board-grid,
+  .column-indicators {
+    gap: 2px;
   }
 }

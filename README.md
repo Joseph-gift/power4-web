@@ -43,7 +43,11 @@ Un jeu de Puissance 4 (Connect Four) en Go avec une interface web responsive, pl
 │   └── play.css            # Styles de la page de jeu
 └── templates/
     ├── board.html          # Template partiel pour la grille
-    └── result.html         # Template partiel pour la bannière de résultat
+    └── gravity.html         # Template partiel pour la 
+    gravité
+    └── result.html         # Template partiel pour la 
+    bannière de résultat
+
 ```
 
 ## 🚀 Lancer en local
@@ -102,6 +106,6 @@ go run main.go
 - Styles manquants: assurez-vous d’accéder au serveur depuis la racine et que `/static/` est bien servi.
 - Erreur de template: vérifiez la présence de `templates/board.html` et `templates/result.html` et que `play.html` les inclut.
 - Échec de compilation: utilisez une version récente de Go (>= 1.22) et exécutez la commande depuis la racine du projet.
-- Si la grille ne s'affiche pas correctement dans votre navigateur essayer de reduire le zoom et de vider le cache.
+-  ❓ Si la grille ne s'affiche pas correctement dans votre navigateur essayer de reduire le zoom et de vider le cache.
 
 
