@@ -1,0 +1,15 @@
+{{ define "board"}}
+<div
+	class="board-grid"
+	style="--cols: {{len (index .Grill 0)}}; --rows: {{len .Grill}}">
+	{{range .Grill}} {{range .}}
+	<div class="cell">
+		{{if eq . 1}}
+		<div class="piece red"></div>
+		{{else if eq . 2}}
+		<div class="piece yellow"></div>
+		{{end}}
+	</div>
+	{{end}} {{end}}
+</div>
+{{end}}
