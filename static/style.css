@@ -79,10 +79,12 @@ h1{
     display: inline-block;
     padding: 8px;
     background: #0b5;
+    border-radius: 8px;
 }
 
 .row {
     display: flex;
+    justify-content: space-around;
 }
 
 .cell {
@@ -91,5 +93,29 @@ h1{
     margin: 4px;
     border-radius: 50%;
     background: #eee;
+    border: 2px solid #333;
 }
 
+.cell[data-v="1"]{
+    background: red;
+}
+
+.cell[data-v="2"]{
+    background: yellow;
+}
+
+.drop {
+    width: 48px;
+    height: 48px;
+    margin: 4px;
+    font-size: 24px;
+    cursor: pointer;
+    border: none;
+    background: #3498db;
+    color: white;
+    border-radius: 50%;
+}
+
+.drop:hover {
+  background: #1f77c4;
+}

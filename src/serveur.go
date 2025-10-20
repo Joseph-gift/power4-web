@@ -2,12 +2,15 @@ package power4
 
 import "net/http"
 
-func Serveur(){
+func Serveur() {
 	// Home route
 	http.HandleFunc("/", home)
 
 	// Play route
 	http.HandleFunc("/play", play)
+
+	// Move route
+	http.HandleFunc("/move", move)
 
 	// Load css
 	fs := http.FileServer(http.Dir("static"))
