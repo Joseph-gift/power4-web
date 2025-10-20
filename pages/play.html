@@ -1,35 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/style.css">
-    <title>Power4</title>
+    <link rel="stylesheet" href="/static/play.css">
+    <title>Puissance 4</title>
+    <meta name="color-scheme" content="dark">
+    <style>/* small reset so anchor looks like button */ a.back-button{ text-decoration:none; }</style>
+    
+    
 </head>
 <body>
-    <div class="container">
-        <h1>Power 4</h1>
-        <p> {{.Player1}} vs {{.Player2}} -- Mode: {{.Difficulty}} <br>
-        
-        {{ if eq .Turn 1}} {{.Player1}} {{else}} {{.Player2}} {{end}}
-        </p>
-
-        <form action="/move" method="post">
-        <div class="row">
-            {{range $i, $_ := index .Grill 0}}
-            <button class="drop" type="submit" name="col" value="{{$i}}">↓</button>
-            {{end}}
-        </div>
-        </form>
-
-        <div class="board">
-            {{range .Grill}}
-            <div class="row">
-                {{range .}}
-                <div class="cell" data-v="{{.}}"></div>
-                {{end}}
+    <!-- GAME -->
+    <div class="game-container">
+        <div class="game-header">
+            <div class="game-top">
+                <div class="game-title">
+                    <svg class="sparkle" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2">
+                        <path d="M12 2L15 9L22 12L15 15L12 22L9 15L2 12L9 9L12 2Z"/>
+                    </svg>
+                    <h2>Puissance 4</h2>
+                </div>
+                <a class="back-button" href="/">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 12h18M3 12l6-6M3 12l6 6"/>
+                    </svg>
+                    Retour
+                </a>
             </div>
-            {{end}}
+
+            <div class="players-status">
+                <div class="player-card red {{if eq .Turn 1}}active{{end}}">
+                    <div class="player-avatar red"></div>
+                    <div class="player-name">{{.Player1}}</div>
+                </div>
+                <div class="player-card yellow {{if eq .Turn 2}}active{{end}}">
+                    <div class="player-avatar yellow"></div>
+                    <div class="player-name">{{.Player2}}</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="board-container">
+            <form class="column-indicators" action="/move" method="post">
+                {{range $i, $_ := index .Grill 0}}
+                <button type="submit" name="col" value="{{$i}}" class="column-button"></button>
+                {{end}}
+            </form>
+
+            <div class="game-board">
+                <div class="board-grid">
+                    {{range .Grill}}
+                        {{range .}}
+                            <div class="cell">
+                                {{if eq . 1}}
+                                    <div class="piece red"></div>
+                                {{else if eq . 2}}
+                                    <div class="piece yellow"></div>
+                                {{end}}
+                            </div>
+                        {{end}}
+                    {{end}}
+                </div>
+            </div>
+
+            <!-- Winner block (optional) -->
+            {{/* Winner not implemented in backend yet; keeping markup ready if added later */}}
         </div>
     </div>
 </body>
