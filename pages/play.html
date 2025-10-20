@@ -1,23 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static">
+    <link rel="stylesheet" href="/static/style.css">
     <title>Power4</title>
 </head>
 <body>
-    <table>
-        <tr>
-            <td>a</td>
-            <td>b</td>
-            <td>c</td>
-        </tr>
-        <tr>
-            <td>a1</td>
-            <td>b1</td>
-            <td>c1</td>
-        </tr>
-    </table>
+    <div class="container">
+        <h1>Power 4</h1>
+        <p> {{.Player1}} vs {{.Player2}}</p>
+
+        <div class="board">
+            {{range .Grill}}
+            <div class="row">
+                {{range .}}
+                <div class="cell" data-v="{{.}}"></div>
+                {{end}}
+            </div>
+            {{end}}
+        </div>
+    </div>
 </body>
 </html>
