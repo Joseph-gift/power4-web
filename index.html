@@ -7,20 +7,30 @@
     <title>Power 4</title>
 </head>
 <body>
-    <h1>Welcome to Power 4</h1>
+    <div class="container">
+        <h1>Welcome to Power 4</h1>
     <!--  -->
-    <form action="/play" method="post">
-        <label for="name">Joueur 1 : </label><br>
-        <input type="text" name="joueu1" required>
-
-        <label for="name">Joueur 2 : </label><br>
-        <input type="text" name="joueu1" required>
-
-        <div class="container">
-            <div class="center">
-                <button type="submit">Commencer</button>
-            </div>
+    <form action="/play" method="post" class="start-form">
+        <div class="form-group">
+            <label for="name">Joueur 1 : </label><br>
+            <input type="text" name="joueu1" required>
         </div>
+
+        <div class="form-group">
+            <label for="name">Joueur 2 : </label><br>
+            <input type="text" name="joueu1" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="difficulty"> Choisir la difficulter</label>
+            <select name="difficulty" id="difficulty">
+                <option value="easy">Facile (6*7)</option>
+                <option value="normal">Normal (6*9)</option>
+                <option value="hard">Hard (7*9)</option>
+            </select>
+        </div>
+            <button  class="btn" type="submit">Commencer</button>
     </form>
+    </div>
 </body>
 </html>
