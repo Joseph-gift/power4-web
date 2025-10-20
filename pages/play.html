@@ -13,10 +13,10 @@
 			}
 		</style>
 	</head>
-	<body>
+		<body>
 		<!-- GAME -->
 		<div class="game-container">
-			<div class="game-header">
+			  <div class="game-header">
 				<div class="game-top">
 					<div class="game-title">
 						<svg
@@ -55,11 +55,13 @@
 						<div class="player-name">{{.Player2}}</div>
 					</div>
 				</div>
+				
+				{{template "gravity-indicator" .}}
 				{{template "result-banner" .}}
 			</div>
 
 			<div
-				class="board-container"
+				class="board-container {{if eq .Turn 1}}player-red-turn{{else}}player-yellow-turn{{end}}"
 				style="--cols: {{len (index .Grill 0)}}; --rows: {{len .Grill}}">
 				{{if .Finished}}
 				<div
@@ -71,7 +73,7 @@
 				</div>
 				{{else}}
 				<form
-					class="column-indicators"
+					class="column-indicators {{if eq .Turn 1}}red-turn{{else}}yellow-turn{{end}}"
 					action="/move"
 					method="post"
 					style="--cols: {{len (index .Grill 0)}}">
